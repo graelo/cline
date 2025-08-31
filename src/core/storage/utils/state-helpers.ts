@@ -158,6 +158,7 @@ export async function readGlobalStateFromDisk(context: ExtensionContext): Promis
 		const awsAuthentication = context.globalState.get("awsAuthentication") as string | undefined
 		const vertexProjectId = context.globalState.get("vertexProjectId") as string | undefined
 		const vertexRegion = context.globalState.get("vertexRegion") as string | undefined
+		const mistralApiLine = context.globalState.get("mistralApiLine") as string | undefined
 		const openAiBaseUrl = context.globalState.get("openAiBaseUrl") as string | undefined
 		const requestyBaseUrl = context.globalState.get("requestyBaseUrl") as string | undefined
 		const openAiHeaders = context.globalState.get("openAiHeaders") as Record<string, string> | undefined
@@ -337,6 +338,7 @@ export async function readGlobalStateFromDisk(context: ExtensionContext): Promis
 			vertexRegion,
 			openAiBaseUrl,
 			requestyBaseUrl,
+			mistralApiLine,
 			openAiHeaders: openAiHeaders || {},
 			ollamaBaseUrl,
 			ollamaApiOptionsCtxNum,

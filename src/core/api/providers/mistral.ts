@@ -7,6 +7,7 @@ import { convertToMistralMessages } from "../transform/mistral-format"
 import { ApiStream } from "../transform/stream"
 
 interface MistralHandlerOptions extends CommonApiHandlerOptions {
+	mistralApiLine?: string
 	mistralApiKey?: string
 	apiModelId?: string
 }
@@ -19,6 +20,10 @@ export class MistralHandler implements ApiHandler {
 		this.options = options
 	}
 
+	private useCodestralApi(): boolean {
+		return this.options.mistralApiLine === "codestral"
+	}
+
 	private ensureClient(): Mistral {
 		if (!this.client) {
 			if (!this.options.mistralApiKey) {
@@ -26,6 +31,7 @@ export class MistralHandler implements ApiHandler {
 			}
 			try {
 				this.client = new Mistral({
+					serverURL: this.useCodestralApi() ? "https://codestral.mistral.ai" : "https://api.mistral.ai",
 					apiKey: this.options.mistralApiKey,
 				})
 			} catch (error) {

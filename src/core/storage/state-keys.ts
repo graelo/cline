@@ -30,6 +30,7 @@ export interface GlobalState {
 	lastShownAnnouncementId: string | undefined
 	taskHistory: HistoryItem[]
 	requestyBaseUrl: string | undefined
+	mistralApiLine: string | undefined
 	openAiBaseUrl: string | undefined
 	openAiHeaders: Record<string, string>
 	ollamaBaseUrl: string | undefined

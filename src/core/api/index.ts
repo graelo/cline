@@ -223,6 +223,7 @@ function createHandlerForProvider(
 		case "mistral":
 			return new MistralHandler({
 				onRetryAttempt: options.onRetryAttempt,
+				mistralApiLine: options.mistralApiLine,
 				mistralApiKey: options.mistralApiKey,
 				apiModelId: mode === "plan" ? options.planModeApiModelId : options.actModeApiModelId,
 			})

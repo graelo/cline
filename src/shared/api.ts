@@ -84,6 +84,7 @@ export interface ApiHandlerOptions {
 	qwenApiKey?: string
 	qwenCodeOauthPath?: string
 	doubaoApiKey?: string
+	mistralApiLine?: string
 	mistralApiKey?: string
 	azureApiVersion?: string
 	qwenApiLine?: string
@@ -2174,6 +2175,14 @@ export const mistralModels = {
 		outputPrice: 0.15,
 	},
 	"codestral-2501": {
+		maxTokens: 256_000,
+		contextWindow: 256_000,
+		supportsImages: false,
+		supportsPromptCache: false,
+		inputPrice: 0.3,
+		outputPrice: 0.9,
+	},
+	"codestral-latest": {
 		maxTokens: 256_000,
 		contextWindow: 256_000,
 		supportsImages: false,
